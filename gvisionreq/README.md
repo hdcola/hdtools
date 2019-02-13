@@ -34,6 +34,20 @@
 
 * 使用mykey请求转换IMG目录下的所有文件，如果有已经请求过缓存就使用本地缓存，并将文本存入 out.txt 文件中去。
 
-```python gvisionreq.py -t -c -k mykey ./IMG/* > out.txt ```
+```python gvisionreq.py -t -c -k mykey ./IMG/* > out.txt```
 
 我就是使用上面这个方法来识别了几百页的一份文件，省心省力！
+
+## 已知问题
+
+* 照片模糊或者无法识别
+
+这时你会得到一个错误提示：
+
+```Traceback (most recent call last):
+  File "/Users/hd/work/hdtools/gvisionreq/gvisionreq.py", line 99, in <module>
+    t = resp['textAnnotations'][0]
+KeyError: 'textAnnotations'
+```
+
+去你的```jsons```缓存目录中找到最后一个文件，这时你会看到文件里只有一个空的 ```{}``` ，去源目录删除对应的文件和生成的json文件，利用已有的cache继续工作就好。
