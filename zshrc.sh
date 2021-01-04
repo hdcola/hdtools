@@ -1,3 +1,5 @@
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 alias update='(
   /usr/local/bin/brew update -v
   /usr/local/bin/brew upgrade -v
